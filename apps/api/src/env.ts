@@ -2,6 +2,7 @@ import { z } from 'zod'
 
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('production'),
+  RESEND_API_KEY: z.string(),
   DATABASE_URL: z.string().url(),
 })
 
