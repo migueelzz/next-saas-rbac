@@ -1,0 +1,4 @@
+{
+  "extends": "@next-saas/tsconfig/library.json",
+  "include": ["index.ts"]
+}
