@@ -34,7 +34,7 @@
     "tsx": "^4.16.5"
   },
   "prisma": {
-    "seed": "tsx prisma/seed.ts"
+    "seed": "pnpm env:load tsx prisma/seed.ts"
   },
   "prettier": "@next-saas/prettier",
   "eslintConfig": {
