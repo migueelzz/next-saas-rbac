@@ -39,7 +39,7 @@
   "prettier": "@next-saas/prettier",
   "eslintConfig": {
     "extends": [
-      "@next-saas/eslint-config/library"
+      "@next-saas/eslint-config/node"
     ]
   }
 }
