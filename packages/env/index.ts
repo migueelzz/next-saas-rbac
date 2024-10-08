@@ -3,7 +3,9 @@ import { z } from 'zod'
 
 export const env = createEnv({
   server: {
-    NODE_ENV: z.enum(['dev', 'qas', 'prod']).default('prod'),
+    NODE_ENV: z
+      .enum(['development', 'test', 'production'])
+      .default('production'),
     SERVER_PORT: z.coerce.number().default(3333),
     DATABASE_URL: z.string().url(),
 
@@ -14,7 +16,9 @@ export const env = createEnv({
     GITHUB_OAUTH_REDIRECT_URI: z.string().url(),
   },
   client: {},
-  shared: {},
+  shared: {
+    NEXT_PUBLIC_API_URL: z.string().url(),
+  },
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     SERVER_PORT: process.env.SERVER_PORT,
@@ -23,6 +27,7 @@ export const env = createEnv({
     GITHUB_OAUTH_CLIENT_ID: process.env.GITHUB_OAUTH_CLIENT_ID,
     GITHUB_OAUTH_CLIENT_SECRET: process.env.GITHUB_OAUTH_CLIENT_SECRET,
     GITHUB_OAUTH_REDIRECT_URI: process.env.GITHUB_OAUTH_REDIRECT_URI,
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
   },
   emptyStringAsUndefined: true,
 })
