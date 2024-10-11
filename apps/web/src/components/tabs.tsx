@@ -9,9 +9,10 @@ export async function Tabs() {
   const permissions = await ability()
 
   const canUpdateOrganization = permissions?.can('update', 'Organization')
+  const canGetBilling = permissions?.can('get', 'Billing')
+
   const canGetProjects = permissions?.can('get', 'Project')
   const canGetMembers = permissions?.can('get', 'User')
-  const canGetBilling = permissions?.can('get', 'Billing')
 
   return (
     <div className="border-b py-4">

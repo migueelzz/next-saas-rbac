@@ -2,7 +2,7 @@ import { Role } from '@next-saas/auth'
 
 import { api } from './api-client'
 
-interface GetOrganizationResponse {
+interface GetOrganizationsResponse {
   organizations: {
     name: string
     id: string
@@ -13,7 +13,13 @@ interface GetOrganizationResponse {
 }
 
 export async function getOrganizations() {
-  const result = await api.get('organizations').json<GetOrganizationResponse>()
+  const result = await api
+    .get('organizations', {
+      next: {
+        tags: ['organizations'],
+      },
+    })
+    .json<GetOrganizationsResponse>()
 
   return result
 }
